@@ -5,6 +5,8 @@
   <!--https://zpl.io/belQgDN-->
   <!--http://172.30.1.36:4200/#/account/general-->
 
+  <h4>https://test.codef.io/#/account/general</h4>
+
   <div class="mt-5 form-inline">
     <h6 class="mb-0">공지 메일 수신자 정보</h6>
     <mat-icon class="ml-2" inline matTooltipPosition="above" matTooltip="프로젝트 담당자와 함께 등록된 수신자에게 사용 API 관련 공지, 장애통지, 변경예고 안내 메일이 발송됩니다.">help_outline</mat-icon>
@@ -46,13 +48,15 @@
 
   <div *ngIf="mailRecipientEdit == true">
     <!--  length 30 이상이면 입력폼 숨기기 -->
-    <div *ngIf="mailRecipientItems.length <= 29" class="input-group mt-3">
-      <input type="email" class="form-control" value="" placeholder="이메일">
-      <input type="text" class="form-control w-20 flex-grow-0" value="" placeholder="이름">
-      <div class="input-group-append">
-        <button type="button" class="btn btn-block btn-primary px-lg-5" (click)="mailRecipientItems.push(1)">추가</button>
+    <form action="">
+      <div *ngIf="mailRecipientItems.length <= 29" class="input-group mt-3">
+        <input type="email" class="form-control" value="" placeholder="이메일">
+        <input type="text" class="form-control w-20 flex-grow-0" value="" placeholder="이름">
+        <div class="input-group-append">
+          <button type="button" class="btn btn-block btn-primary px-lg-5" (click)="mailRecipientItems.push(1)">추가</button>
+        </div>
       </div>
-    </div>
+    </form>
 
     <div class="form-inline mt-3">
       <button class="btn px-5 btn-secondary ml-auto" (click)="mailRecipientEdit = false;">취소</button>

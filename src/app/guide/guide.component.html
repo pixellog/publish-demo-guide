@@ -1,0 +1,125 @@
+<div class="container">
+  <div class="content pt-5">
+
+    <div class="form-keys">
+      <span class="text-truncate">key id</span>
+      <span class="ml-2"><span class="badge badge-pill badge-info text-white">NEW</span>
+              <span class="badge badge-pill badge-secondary">OLD</span></span>
+      <span class="ml-auto"><button mat-icon-button matTooltipPosition="above" matTooltip="copy">
+              <mat-icon>file_copy</mat-icon></button>
+              <button mat-icon-button matTooltipPosition="above" matTooltip="delete">
+              <mat-icon>delete</mat-icon></button></span></div>
+
+    <h3 class="mt-5">color : https://zpl.io/VDeLKDg</h3>
+
+    <div class="row">
+      <div class="col-2">
+        <h6>theme</h6>
+        <div class="row no-gutters">
+          <div class="col-12 p-1" [ngClass]="'bg-'+item" *ngFor="let item of themes">
+            .bg-{{item}}
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <h6 class="invisible">theme</h6>
+        <div class="row no-gutters">
+          <div class="col-12 p-1" [ngClass]="'text-'+item" *ngFor="let item of themes">
+            .text-{{item}}
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <h6>colors</h6>
+        <div class="row no-gutters">
+          <div class="col-12 p-1" [ngClass]="'bg-'+item" *ngFor="let item of colors">
+            .bg-{{item}}
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <h6 class="invisible">colors</h6>
+        <div class="row no-gutters">
+          <div class="col-12 p-1" [ngClass]="'text-'+item" *ngFor="let item of colors">
+            .text-{{item}}
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <h6>package</h6>
+        <div class="row no-gutters">
+          <div class="col-12 p-1" [ngClass]="'bg-'+item" *ngFor="let item of package">
+            .bg-{{item}}
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+        <h6 class="invisible">package</h6>
+        <div class="row no-gutters">
+          <div class="col-12 p-1" [ngClass]="'text-'+item" *ngFor="let item of package">
+            .text-{{item}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <h3>button</h3>
+
+    <div class="row">
+      <div class="col-3">
+        <h6>.btn-*</h6>
+        <div class="btn btn-block m-1" [ngClass]="'btn-'+item" *ngFor="let item of themes">
+          .btn-{{item}}
+        </div>
+      </div>
+      <div class="col-3">
+        <h6>.btn-outline-*</h6>
+        <div class="btn btn-block m-1" [ngClass]="'btn-outline-'+item" *ngFor="let item of themes">
+          .btn-outline-{{item}}
+        </div>
+      </div>
+      <div class="col-3">
+        <h6>size</h6>
+        <div class="btn btn-block m-1 btn-primary" [ngClass]="'btn-'+item" *ngFor="let item of size">
+          .btn-{{item}}
+        </div>
+      </div>
+    </div>
+
+
+    <h3 class="mt-5">form</h3>
+    <h5>zpl.io/blggn0P</h5>
+    <div class="row">
+      <div class="col-lg-6">
+        <input type="text" class="form-control form-group" value="필드명">
+        <input type="text" class="form-control form-group" disabled value="필드명 수정 불가시-value">
+        <input type="text" class="form-control form-group" disabled placeholder="필드명 수정 불가시-placeholder">
+
+        <div class="form-group input-group">
+          <input class="form-control" placeholder="기간입력" type="date">
+          <span class="px-2">~</span>
+          <input class="form-control" placeholder="기간입력" type="date">
+        </div>
+
+        <div class="form-group input-group">
+          <select name="" id="" class="custom-select">
+            <option value="">선택</option>
+          </select>
+          <input class="form-control ml-2" placeholder="" type="text">
+          <button type="button" class="btn btn-info ml-2">인증</button>
+        </div>
+
+        <div class="form-group input-group">
+          <input class="form-control" placeholder="키워드" type="search">
+          <div class="input-group-append">
+            <button type="button" class="btn btn-info pb-0">
+              <mat-icon>search</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
