@@ -1,0 +1,51 @@
+.mat-sort-header-container {
+  justify-content: center;
+}
+
+.table {
+  border-bottom: 1px solid $border;
+
+  th, td {
+    vertical-align: middle;
+  }
+
+  thead {
+    th, td {
+      text-align: center;
+      vertical-align: middle;
+      font-weight: normal;
+    }
+  }
+}
+
+.table-hover tbody {
+  tr {
+    &:hover, &:active {
+      background-color: #e7ebf2;
+    }
+  }
+}
+
+.table-responsive {
+  .table {
+    min-width: 750px;
+  }
+}
+
+// ※ 브라우저 지원 정보
+.border-x-0 {
+  th:first-child, td:first-child {
+    border-left-color: #fff;
+  }
+  th:last-child, td:last-child {
+    border-right-color: #fff;
+  }
+}
+.mat-paginator-container {
+ justify-content: start !important;
+}
+.mat-paginator-range-label {
+  @include media-breakpoint-down(lg) {
+    margin: 0 !important;
+  }
+}

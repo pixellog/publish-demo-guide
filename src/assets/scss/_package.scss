@@ -1,0 +1,109 @@
+
+.bg {
+  &-pers {
+    background-color: #44d7b6;
+  }
+
+  &-corp {
+    background-color: #478dfe;
+  }
+
+  &-comm {
+    background-color: #ff5f88;
+  }
+
+  &-etc {
+    background-color: #f59f02;
+  }
+}
+
+
+.badge {
+  &-category {
+    margin-left: 6px;
+    width: 60px;
+    height: 24px;
+    background: 0 0 / 100% no-repeat;
+  }
+
+  &-best {
+    background-image: url(#{$main}pack-flag-best@2x.png);
+  }
+
+  &-pers {
+    background-image: url(#{$main}pack-flag-1@2x.png);
+  }
+
+  &-corp {
+    background-image: url(#{$main}pack-flag-2@2x.png);
+  }
+
+  &-comm {
+    background-image: url(#{$main}pack-flag-3@2x.png);
+  }
+}
+
+.package-item {
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  transition: .2s all;
+
+  height: 196px;
+
+  @include media-breakpoint-up(lg) {
+    height: 209px;
+  }
+
+
+  mat-icon {
+    display: none;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  $personal: #44d7b6 !default;
+  $corporate: #478dfe !default;
+  $common: #ff5f88 !default;
+
+  &.pers {
+    &:hover, &:active {
+      background-color: $personal;
+    }
+  }
+
+  &.corp {
+    &:hover, &:active {
+      background-color: $corporate;
+    }
+  }
+
+  &.comm {
+    &:hover, &:active {
+      background-color: $common;
+    }
+  }
+
+  &:hover, &:active {
+    .text-dark {
+      color: #fff !important;
+    }
+
+    .badge-category {
+      visibility: hidden;
+    }
+
+    mat-icon {
+      display: block;
+    }
+
+    p, h5 {
+      color: #fff;
+    }
+
+    img {
+      filter: brightness(0) invert(1);
+    }
+  }
+}

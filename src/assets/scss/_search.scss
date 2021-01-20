@@ -1,0 +1,85 @@
+.form-search {
+
+  .container {
+    @include media-breakpoint-down(lg) {
+      //min-height: 100vh;
+    }
+  }
+
+  .form-rounded {
+    width: 100%;
+    @include media-breakpoint-up(lg) {
+      width: 800px;
+    }
+
+    .form-control {
+      height: 56px;
+      padding: 8px 8px 8px 30px;
+      border-radius: 28px;
+      box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.2);
+      background-color: #ffffff;
+    }
+
+    .btn {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+    }
+  }
+
+
+  .btn-light {
+    background-color: #fff;
+
+    span {
+      color: #666;
+    }
+
+    &:hover {
+      span {
+        color: #fff;
+      }
+
+      .filter-gray {
+        //흰색
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+}
+
+
+.dialog-search {
+  height: 100vh !important;
+
+  .mat-expansion-panel-body {
+    padding: 0;
+  }
+
+  .mat-dialog-container {
+    padding: 0;
+  }
+
+  .mat-dialog-title {
+    display: flex !important;
+  }
+
+  .btn-outline-dark {
+    border-radius: 23px;
+  }
+
+
+  .btn-light {
+    &:hover {
+      background-color: $info;
+      color: $white;
+    }
+  }
+
+}
+
+.min-sm-vh-100 {
+  @include media-breakpoint-down(lg) {
+    min-height: 100vh;
+  }
+}

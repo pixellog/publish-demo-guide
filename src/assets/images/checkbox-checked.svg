@@ -1,0 +1,16 @@
+<svg id="checkbox-checked.svg" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #4a2fa9;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect id="Rounded_Rectangle_7_copy" data-name="Rounded Rectangle 7 copy" class="cls-1" width="30" height="30" rx="5" ry="5"/>
+  <path id="Rounded_Rectangle_9_copy" data-name="Rounded Rectangle 9 copy" class="cls-2" d="M467.757,1085.34l4.9,4.9a1,1,0,0,1-1.414,1.42l-4.9-4.9A1,1,0,0,1,467.757,1085.34Zm11.534-3.06-7.977,7.98a1.009,1.009,0,0,0,1.425,1.43l7.977-7.98A1.009,1.009,0,1,0,479.291,1082.28Z" transform="translate(-458 -1071)"/>
+</svg>

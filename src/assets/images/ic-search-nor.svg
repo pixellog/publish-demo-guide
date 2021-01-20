@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="29px" viewBox="0 0 30 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-Search-nor</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic-Search-nor">
+            <g id="ic_Search----">
+                <path d="M13.00015,2.9999 C7.47723435,2.9999 2.99995,7.47713515 2.99995,13.000025 C2.99995,18.5227531 7.47722261,22.99985 13.00015,22.99985 C18.5227981,22.99985 23.000025,18.5227074 23.000025,13.000025 C23.000025,7.47718084 18.5227863,2.9999 13.00015,2.9999 Z" id="Ellipse-1" stroke="#DCDCDC" stroke-width="2"></path>
+                <path d="M21.989404,19.565025 L28.30336,25.878673 C28.693761,26.26914 28.693761,26.902443 28.30336,27.29291 C27.912673,27.68352 27.279557,27.68352 26.889167,27.29291 L20.575211,20.979108 C20.18481,20.588795 20.18481,19.955635 20.575211,19.565025 C20.965898,19.174404 21.599014,19.174404 21.989404,19.565025 Z" id="Rounded-Rectangle-7" fill="#DCDCDC"></path>
+            </g>
+        </g>
+        <g id="00" transform="translate(-677.000000, -304.000000)"></g>
+    </g>
+</svg>

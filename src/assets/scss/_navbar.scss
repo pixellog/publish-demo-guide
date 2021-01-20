@@ -1,0 +1,218 @@
+@mixin navbar-theme-white {
+  //position: fixed !important;
+  top: 0;
+  z-index: 100;
+  background: #fff !important;
+  border-bottom: 1px solid rgba(0, 0, 0, .06);
+
+  .mobile-only {
+    color: $dark;
+  }
+
+  .navbar-brand {
+    background-image: url(/assets/images/ci/logo-api-ci-basic.svg);
+  }
+
+  .text-light {
+    color: #333 !important;
+  }
+
+  .depth1 {
+    color: #333;
+  }
+
+  .navbar-right {
+    .nav-link {
+      color: $secondary;
+
+      &.active, &:hover {
+        color: $info;
+      }
+    }
+  }
+}
+
+.navbar {
+  margin-top: -1px;
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
+
+  .dropdown-toggle {
+    @include media-breakpoint-down(lg) {
+      display: block;
+    }
+  }
+
+  .dropdown-menu {
+    @include media-breakpoint-down(lg) {
+      position: static;
+      width: 100%;
+      border-radius: 0;
+      box-shadow: none;
+      border-left: 0;
+      border-right: 0;
+    }
+    font-size: 13px;
+    line-height: 1.8;
+    min-width: 8rem;
+    padding: .8rem;
+    box-shadow: .3px .9px 6px 0 rgba(0, 2, 25, 0.3);
+    //border: solid 1px rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, .8);
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: $primary;
+    }
+
+    a:not(.title) {
+      position: relative;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        background-color: $primary;
+        position: relative;
+        top: -5px;
+        margin-right: 8px;
+        height: 1px;
+        transition: 0.2s all ease;
+        width: 0;
+      }
+
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        color: $primary;
+
+        &::before {
+          width: 15px;
+        }
+      }
+    }
+  }
+
+  .mat-tab-label {
+    height: 70px;
+    padding: 0;
+    margin: 0 20px;
+    color: #fff;
+    min-width: auto;
+    background-color: transparent !important;
+  }
+
+  .mat-tab-header {
+    border-bottom: 0;
+  }
+
+  .mat-ink-bar {
+    background-color: $info !important;
+  }
+
+  .mat-tab-body-wrapper {
+    position: absolute;
+    top: 71px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    box-shadow: 0 8px 15px 0 rgba(0, 0, 0, 0.12);
+    background-color: #ffffff;
+    overflow: hidden;
+  }
+
+  transition: .4s all;
+
+  .depth1 {
+    color: $white;
+
+    &.active, &:hover {
+      color: $info;
+    }
+  }
+
+  .depth2 {
+    color: $secondary;
+
+    &.active, &:hover {
+      color: $primary;
+    }
+  }
+
+
+  &:not(.navbar--scrolled) {
+    position: relative;
+    background-color: rgba(0, 0, 0, .2) !important;
+
+    .mobile-only {
+      color: $white;
+    }
+  }
+
+  &--scrolled {
+    @include navbar-theme-white;
+
+    .btn-search {
+      color: #666 !important;
+    }
+  }
+}
+
+.main {
+  .navbar--scrolled {
+    position: fixed;
+  }
+}
+
+body:not(.main) {
+  .navbar {
+    @include media-breakpoint-down(lg) {
+      @include navbar-theme-white;
+    }
+  }
+}
+
+.navbar-right {
+  .nav-link {
+    color: $white;
+
+    &.active, &:hover {
+      color: $info;
+    }
+  }
+}
+
+
+.sub-nav {
+  background-color: #333;
+  color: #fff;
+  line-height: 1.7;
+
+  .depth2 {
+    color: #ddd;
+    border-color: #ddd;
+
+    &:hover {
+      color: #05C3DD;
+      border-color: #05C3DD !important;
+    }
+
+    &.active {
+      color: $info;
+      border-color: $info !important;
+    }
+  }
+
+  button[disabled] {
+    opacity: .2;
+  }
+}
+
+.font-material-round {
+  font-family: "Material Icons Round" !important;
+}
+
+.font-material-sharp {
+  font-family: "Material Icons Sharp" !important;
+}

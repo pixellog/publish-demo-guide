@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="17px" height="10px" viewBox="0 0 17 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-dropdown</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic-dropdown" fill="#4119A7">
+            <path d="M16.743067,1.495464 L9.106942,9.720422 C9.106039,9.721486 9.104527,9.721794 9.10333,9.723012 C9.102721,9.723768 9.102427,9.724832 9.101818,9.725588 C8.784214,10.069134 8.272906,10.069134 7.957717,9.725588 L0.23377,1.504732 C-0.082637,1.161032 -0.082637,0.604126 0.23377,0.26058 C0.550177,-0.082952 1.062367,-0.082952 1.378774,0.26058 L8.534587,7.877756 L15.607366,0.259978 C15.920161,-0.081132 16.430272,-0.081132 16.743067,0.259978 C17.057059,0.601242 17.057059,1.154354 16.743067,1.495464 Z" id="Rounded-Rectangle-5-copy-3"></path>
+        </g>
+        <g id="00" transform="translate(-1009.000000, -99.000000)"></g>
+    </g>
+</svg>

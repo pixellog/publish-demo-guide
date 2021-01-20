@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>ic-checkbox-s-nor</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic-checkbox-s-nor">
+            <g id="checkbox_s-_nor">
+                <rect id="Rectangle" stroke="#BFBFBF" stroke-width="2" fill="#FFFFFF" x="1" y="1" width="28" height="28" rx="5"></rect>
+                <path d="M22.715953,11.70799 L14.739658,19.685557 C14.434385,19.991278 13.984142,20.052937 13.612692,19.884054 C13.477963,19.835759 13.350435,19.764688 13.242458,19.656697 L8.342985,14.757439 C7.951699,14.366828 7.951699,13.733975 8.342985,13.342896 C8.73429,12.952441 9.3668,12.952441 9.756889,13.342896 L13.99406,17.580142 L21.291238,10.282826 C21.686134,9.889316 22.324667,9.889316 22.715953,10.282826 C23.110849,10.676167 23.110849,11.314493 22.715953,11.70799 Z" id="Rounded-Rectangle-9-copy" fill="#BFBFBF"></path>
+            </g>
+        </g>
+        <g id="00" transform="translate(-677.000000, -174.000000)"></g>
+    </g>
+</svg>

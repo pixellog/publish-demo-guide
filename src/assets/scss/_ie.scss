@@ -1,0 +1,52 @@
+img {
+  max-width: 100%;
+  &[src*='@2x.png'] {
+    zoom: .5;
+  }
+  &.w-100 {
+    width: auto;
+  }
+}
+
+// ie 분기
+.ie {
+  img.x1 {
+    zoom: 1 !important;
+  }
+
+  .mat-dialog-title {
+    font-size: 20px;
+    padding-top: 30px !important;
+  }
+
+  .btn {
+    overflow: hidden;
+  }
+
+  .btn-arrow {
+    &::after {
+      content: "\e315";
+    }
+  }
+
+  // https://github.com/google/material-design-icons/blob/master/iconfont/codepoints
+  //.slick-prev {
+  //  &::before {
+  //    content: "\e314" !important;
+  //  }
+  //}
+  //
+  //.slick-next {
+  //  &::before {
+  //    content: "\e315" !important;
+  //  }
+  //}
+
+  // faq
+  .board-faq {
+    [src*='@2x.png'] {
+      zoom: 1;
+    }
+  }
+
+}

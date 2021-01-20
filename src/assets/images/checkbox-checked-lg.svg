@@ -1,0 +1,18 @@
+<svg id="checkbox-checked-lg.svg" xmlns="http://www.w3.org/2000/svg" width="39.5" height="39.5" viewBox="0 0 39.5 39.5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        stroke: #bfbfbf;
+        stroke-width: 1.5px;
+      }
+
+      .cls-2 {
+        fill: #4a2fa9;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <rect id="Rounded_Rectangle_7" data-name="Rounded Rectangle 7" class="cls-1" x="0.75" y="0.75" width="38" height="38" rx="5" ry="5"/>
+  <path id="Rounded_Rectangle_9" data-name="Rounded Rectangle 9" class="cls-2" d="M383.758,1079.34l6.9,6.9a1,1,0,0,1-1.414,1.42l-6.9-6.9A1,1,0,1,1,383.758,1079.34Zm16.533-4.06-10.977,10.98a1.01,1.01,0,0,0,1.426,1.43l10.977-10.98A1.01,1.01,0,1,0,400.291,1075.28Z" transform="translate(-371.25 -1062.25)"/>
+</svg>

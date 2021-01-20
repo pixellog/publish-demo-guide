@@ -1,0 +1,13 @@
+.code {
+  background-color: #030021;
+  border-radius: 5px;
+  .code-header {
+    background-color: #19163c;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px 5px 0 0;
+  }
+  :not(pre) > code[class*="language-"], pre[class*="language-"] {
+    background: none;
+  }
+}

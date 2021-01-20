@@ -1,0 +1,123 @@
+.slick-dots {
+  left: 0;
+  li {
+    line-height: 1;
+    margin: 2px;
+    zoom: 1.2;
+
+    button::before {
+      color: $secondary;
+    }
+  }
+}
+
+.slick-slide {
+  border: 0 !important;
+}
+
+#carousel-banner {
+  .slick-vertical {
+    .slick-dots {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 12px;
+      position: absolute;
+      right: 20%;
+      top: 0;
+      bottom: 0;
+
+      li {
+        margin: 2px;
+        zoom: .5;
+
+        button::before {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .btn-close {
+    right: 10px;
+    top: 14px;
+  }
+
+  .bg-m {
+    min-height: 60px;
+    background: 50% / cover no-repeat;
+  }
+}
+
+
+// 상단 스프레드 배너
+#carousel-banner {
+  position: relative;
+  margin-bottom: 0;
+  overflow: hidden;
+  z-index: 101;
+
+  $height: 60px;
+  //height: $height;
+
+  .slick-slide {
+    .carousel-item {
+      display: block;
+      height: $height;
+    }
+
+    img {
+      margin: auto;
+      height: $height;
+    }
+  }
+}
+
+
+// 하단 정식버전
+.banner-spread {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #020832;
+  color: #a1b5e3;
+  padding: 15px;
+
+  span {
+    font-weight: 100;
+    display: inline-block;
+    margin-top: 2px;
+  }
+}
+
+
+#carousel-packages {
+  .slick-prev, .slick-next {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+
+    &:before {
+      font-family: 'Material Icons Sharp';
+      font-size: 40px;
+      color: #333;
+    }
+  }
+
+  .slick-prev {
+    left: -40px;
+
+    &:before {
+      content: 'chevron_left';
+    }
+  }
+
+  .slick-next {
+    right: -30px;
+
+    &:before {
+      content: 'chevron_right';
+    }
+  }
+}

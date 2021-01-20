@@ -1,0 +1,9 @@
+.bg-dark {
+  .nav-link {
+    color: $white;
+    &:hover {
+      color: $info;
+      text-decoration: underline;
+    }
+  }
+}

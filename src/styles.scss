@@ -1,0 +1,191 @@
+//@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+@import 'assets/font/css/SpoqaHanSansNeo.css';
+@import 'assets/scss/variables';
+@import '~bootstrap/scss/bootstrap';
+//@import "~prismjs/plugins/toolbar/prism-toolbar.css";
+//@import '~codemirror/lib/codemirror.css';
+//@import '~@toast-ui/editor/dist/toastui-editor.css';
+//@import '~highlightjs/styles/github.css';
+//@import '~slick-carousel/slick/slick.css';
+//@import '~slick-carousel/slick/slick-theme.css';
+
+@import 'assets/scss/layout';
+@import 'assets/scss/button';
+@import 'assets/scss/form';
+@import 'assets/scss/navbar';
+@import 'assets/scss/tabs';
+@import 'assets/scss/board';
+@import 'assets/scss/table';
+@import 'assets/scss/popup';
+@import 'assets/scss/icon';
+@import 'assets/scss/code';
+@import 'assets/scss/material';
+@import 'assets/scss/list';
+@import 'assets/scss/service';
+@import 'assets/scss/account';
+@import 'assets/scss/dashboard';
+@import 'assets/scss/main';
+@import 'assets/scss/usecases';
+@import 'assets/scss/package';
+@import 'assets/scss/search';
+@import 'assets/scss/slick';
+@import 'assets/scss/ie';
+
+
+$utilities: (
+  "opacity": (
+    property: opacity,
+    class: ooo,
+    values: (
+      0: 0,
+      25: .25,
+      50: .5,
+      75: .75,
+      100: 1,
+    )
+  )
+);
+
+
+$colors: () !default;
+
+@each $color, $value in $colors {
+  @include bg-variant(".bg-#{$color}", $value, true);
+}
+
+@each $color, $value in $colors {
+  @include text-emphasis-variant(".text-#{$color}", $value, true);
+}
+
+
+$best: #f59f02 !default;
+$personal: #44d7b6 !default;
+$corporate: #478dfe !default;
+$common: #ff5f88 !default;
+
+$packages: () !default;
+$packages: map-merge(
+    (
+      "best": $best,
+      "personal": $personal,
+      "corporate": $corporate,
+      "common": $common,
+    ),
+    $packages
+);
+
+@each $package, $value in $packages {
+  @include bg-variant(".bg-#{$package}", $value, true);
+}
+
+@each $package, $value in $packages {
+  @include text-emphasis-variant(".text-#{$package}", $value, true);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 14px;
+  @include media-breakpoint-down(lg) {
+    h1, .h1 {
+      font-size: 2rem;
+    }
+    h2, .h2 {
+      font-size: 1.75rem;
+    }
+    h3, .h3 {
+      font-size: 1.5rem;
+    }
+    h4, .h4 {
+      font-size: 1.25rem;
+    }
+    h5, .h5 {
+      font-size: 1.15rem;
+    }
+
+    .material-icons {
+      font-size: 20px;
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    font-size: 16px;
+  }
+}
+
+// 체크박스
+.mat-checkbox {
+  &.card {
+    padding: 10px;
+
+    &:not(.mat-checkbox-checked) {
+      color: $gray-500;
+
+      .mat-checkbox-frame {
+        border-color: $gray-500;
+      }
+    }
+
+    &.mat-checkbox-checked {
+      border-color: $primary;
+    }
+
+    .mat-checkbox-layout {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &.mat-checkbox-label-before .mat-checkbox-inner-container {
+    margin-right: 0;
+  }
+}
+
+
+ul.list-bill {
+  @include list-unstyled;
+  margin: 10px 0;
+
+  > li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    span + span {
+      padding-left: 10px;
+    }
+  }
+}
+
+div.list-bill {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid $border;
+  border-width: 1px 0;
+  padding: 10px 0;
+  margin-top: -1px;
+}
+
+.legend {
+  @include media-breakpoint-down(lg) {
+    margin-bottom: 10px;
+  }
+
+  .mat-icon {
+    font-size: 13px;
+    width: auto;
+    height: auto;
+    margin-right: 6px;
+  }
+}
+
+.overflow-lg-hidden {
+  @include media-breakpoint-up(lg) {
+    overflow: hidden !important;
+  }
+}
+
+@import '~@angular/material/theming';
+
+.bg-primary-gradient {
+  background-image: linear-gradient(to right, #46ccff, #4b179c);
+}
+
