@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta charset="UTF-8" />
+  <base href="https://codef.io/#/">
+  <link href="https://codef.io/styles.css" rel="stylesheet" />
+  <style>
+    li, p, span, td, th {
+      white-space: normal;
+    }
+  </style>
+  <!-- todo : 2021.01.07 : css || display : flex 인식 안함, float로 구현 -->
+  <!-- todo : 2021.01.07 : 이미지가 absolute 거나 height 가 없으면 출력 안됨 -->
+</head>
+<body>
+<div class="container">
+<!--<div>-->
+  <div class="bg-primary px-5 py-3">
+    <h5 class="mb-0 text-white">예상 요금 결과</h5>
+  </div>
+
+  <div class="px-3 pt-3">
+    <div class="position-relative text-right">
+      <img alt="CODEF" src="/src/assets/images/ci/codef_ci_web_02-1_basic.svg" style="width: 80px; height: 35px;" />
+    </div>
+
+    <div class="overflow-hidden">
+      <div class="float-left" style="width: 30%;">
+        <h6>서비스 이용자</h6>
+        <ul class="list-group">
+          <li class="list-group-item"><span class="text-muted">담당자</span><span class="float-right">${serviceUser.name}</span></li>
+          <li class="list-group-item"><span class="text-muted">이메일</span><span class="float-right">${serviceUser.email}</span></li>
+          <li class="list-group-item"><span class="text-muted">발행일</span><span class="float-right">${serviceUser.publishDate}</span></li>
+        </ul>
+      </div>
+
+      <div class="float-right" style="width: 70%; padding-left: 15px;">
+        <h6>서비스 제공자</h6>
+        <ul class="list-group">
+          <li class="list-group-item"><span class="text-muted">소재지</span><span class="float-right" style="white-space: nowrap">서울특별시 중구 청계천로 100, 서관 3층 (수표동, 시그니쳐타워)</span></li>
+          <li class="list-group-item"><span class="text-muted">전화번호</span><span class="float-right">02-6953-0257</span></li>
+          <li class="list-group-item"><span class="text-muted">가격문의</span><span class="float-right">support@codef.io</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border rounded my-3 p-3 text-right">
+      <span class="text-muted">
+        1개월 예상 요금(VAT 별도)
+      </span>
+      <strong class="text-primary pl-3 h5">
+        ₩ $numberTool.format("integer", ${totalPrice})
+      </strong>
+    </div>
+
+    <h6>예상 요금 계산기에서 선택한 상품 및 요청 건 수에 따라 산출된 금액이므로 실제 청구금액과 다를 수 있습니다.</h6>
+    <p>※ 분류별 최소 요금 : 50만원 (요청 건 수에 따른 사용 요금이 50만원 미만일 경우에도 최소 요금이 청구되므로 참고하시기 바랍니다.)</p>
+
+    <table class="table table-bordered text-center mt-5">
+      <thead>
+      <tr class="bg-primary text-white">
+        <th>분류</th>
+        <th>구간</th>
+        <th>상품구분</th>
+        <th>건당 요금(원)</th>
+        <th>요청 건수(건)</th>
+        <th>상품구분별 요금(원)</th>
+        <th>금액(원)</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      #if($isUseCertificateService)
+      <tr>
+        <td colspan="6" class="text-center">공인인증서 서비스(내보내기/가져오기)</td>
+        <td class="text-right bg-muted">$numberTool.format("integer", ${certServicePrice})</td>
+      </tr>
+      #end
+      #foreach ($key in $businessList)
+      #if ($key == 'BK')
+      #set ($business = '은행')
+      #elseif($key == 'CD')
+      #set ($business = '카드')
+      #elseif($key == 'IS')
+      #set ($business = '보험')
+      #elseif($key == 'ST')
+      #set ($business = '증권')
+      #elseif($key == 'PB')
+      #set ($business = '공공')
+      #elseif($key == 'ETC')
+      #set ($business = '기타')
+      #end
+      #foreach ($extra in $expectedInfo[$key].extraPriceList)
+      <tr>
+        #if ($velocityCount == 1)
+        #set ($spanCnt = $expectedInfo[$key].extraPriceList.size() + $expectedInfo[$key].defaultPriceList.size())
+        <td class="bg-muted" rowspan="${spanCnt}">${business}</td>
+        #end
+        <td>${extra.chargeSection}</td>
+        <td>별도요금상품<br />(${extra.productName})</td>
+        <td>${extra.unitPrice}</td>
+        <td class="text-right">$numberTool.format("integer", ${extra.chargeCount})</td>
+        <td class="text-right">$numberTool.format("integer", ${extra.chargePrice})</td>
+        #if ($velocityCount == 1)
+        #set ($spanCnt = $expectedInfo[$key].extraPriceList.size() + $expectedInfo[$key].defaultPriceList.size())
+        <td class="bg-muted text-right" rowspan="${spanCnt}">$numberTool.format("integer", ${expectedInfo[$key].productTotalPrice})</td>
+        #end
+      </tr>
+      #end
+      #foreach ($defaultInfo in $expectedInfo[$key].defaultPriceList)
+      <tr>
+        #if ($expectedInfo[$key].extraPriceList.size() < 1 && $velocityCount == 1)
+        <td class="bg-muted" rowspan="${expectedInfo[${key}].defaultPriceList.size()}">${business}</td>
+        #end
+        <td>${defaultInfo.chargeSection}</td>
+        <td>${defaultInfo.productName}</td>
+        <td>${defaultInfo.unitPrice}</td>
+        <td class="text-right">$numberTool.format("integer", ${defaultInfo.chargeCount})</td>
+        <td class="text-right">$numberTool.format("integer", ${defaultInfo.chargePrice})</td>
+        #if ($expectedInfo[$key].extraPriceList.size() < 1 && $velocityCount == 1)
+        <td class="bg-muted text-right" rowspan="${expectedInfo[${key}].defaultPriceList.size()}">$numberTool.format("integer", ${expectedInfo[$key].productTotalPrice})</td>
+        #end
+      </tr>
+      #end
+      #end
+      </tbody>
+      <tfoot>
+      <tr class="bg-primary text-white">
+        <th colspan="3">합계</th>
+        <td class="text-right text-primary bg-muted font-weight-bold" colspan="4"> $numberTool.format("integer", ${totalPrice})</td>
+      </tr>
+      </tfoot>
+    </table>
+    <ul class="list-dotted h7">
+      <li> 입력된 별도요금상품 요청 건 수가 기본요금상품 건당 요금 적용이 시작되는 구간을 결정합니다.
+        따라서 별도요금상품 요청 건 수가 증가할수록 기본요금상품 건당 요금 할인을 받을 수 있습니다.
+      </li>
+      <li> 총 예상 요금은 요청 건 수에 따라 건당 요금을 계산하여 모든 분류 구간별 금액의 합으로 계산됩니다.</li>
+      <li> 분류 추가시마다 각 구간에 따른 건당 요금이 추가되며, 추가되는 금액은 상품구분에 따라 다릅니다.</li>
+      <li> 은행 거래내역과 카드 승인내역 등 다건의 응답이 반환되는 상품을 사용할 경우, 안정적인 데이터를 전달하기 위해 조회 건수를 제한합니다.
+        - 조회 건당 5000건 이내가 되도록 조회기간을 조절하여 사용할 경우 최대 응답 속도를 보장하며, 초과할 겨우 추가요금이 발생합니다.
+        - 응답 목록 5000건 이하는 1건 요청으로 과금되며 응답 목록이 5000건을 초과할 경우 5000건당 1건 요청으로 계산하여 과금됩니다.
+        (ex. 5000건은 1건으로 과금, 5001건은 2건으로 과금, 12000건은 3건으로 과금)
+      </li>
+      <li>전체 상품구분별 건당 요금 확인은 요금표를 확인하세요.</li>
+    </ul>
+
+    <h5 class="mt-5">CODEF 가격 정책 요금표</h5>
+
+    <h6>기본요금상품 건당 요금</h6>
+
+    <table class="table table-bordered text-center">
+      <thead>
+      <tr class="bg-primary text-white">
+        <th>분류</th>
+        <th>구간</th>
+        <th>건당 요금(원)</th>
+        <th>구간 최대 요금(원)</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      #foreach ($standard in $classifyStandardPrice.BK)
+      <tr>
+        #if($velocityCount == 1)
+        <td class="bg-muted" rowspan="4">은행</td>
+        #end
+        <td>${standard.chargeSection}</td>
+        <td>${standard.unitPrice}</td>
+        #if($standard.sectionMaxPrice != '')
+        <td class="text-right">$numberTool.format("integer", ${standard.sectionMaxPrice})</td>
+        #else
+        <td class="text-right">${standard.sectionMaxPrice}</td>
+        #end
+      </tr>
+      #end
+      #foreach ($standard in $classifyStandardPrice.CD)
+      <tr>
+        #if($velocityCount == 1)
+        <td class="bg-muted" rowspan="4">카드</td>
+        #end
+        <td>${standard.chargeSection}</td>
+        <td>${standard.unitPrice}</td>
+        #if($standard.sectionMaxPrice != '')
+        <td class="text-right">$numberTool.format("integer", ${standard.sectionMaxPrice})</td>
+        #else
+        <td class="text-right">${standard.sectionMaxPrice}</td>
+        #end
+      </tr>
+      #end
+      #foreach ($standard in $classifyStandardPrice.IS)
+      <tr>
+        #if($velocityCount == 1)
+        <td class="bg-muted" rowspan="4">보험</td>
+        #end
+        <td>${standard.chargeSection}</td>
+        <td>${standard.unitPrice}</td>
+        #if($standard.sectionMaxPrice != '')
+        <td class="text-right">$numberTool.format("integer", ${standard.sectionMaxPrice})</td>
+        #else
+        <td class="text-right">${standard.sectionMaxPrice}</td>
+        #end
+      </tr>
+      #end
+      #foreach ($standard in $classifyStandardPrice.ST)
+      <tr>
+        #if($velocityCount == 1)
+        <td class="bg-muted" rowspan="4">증권</td>
+        #end
+        <td>${standard.chargeSection}</td>
+        <td>${standard.unitPrice}</td>
+        #if($standard.sectionMaxPrice != '')
+        <td class="text-right">$numberTool.format("integer", ${standard.sectionMaxPrice})</td>
+        #else
+        <td class="text-right">${standard.sectionMaxPrice}</td>
+        #end
+      </tr>
+      #end
+      #foreach ($standard in $classifyStandardPrice.PB)
+      <tr>
+        #if($velocityCount == 1)
+        <td class="bg-muted" rowspan="4">공공</td>
+        #end
+        <td>${standard.chargeSection}</td>
+        <td>${standard.unitPrice}</td>
+        #if($standard.sectionMaxPrice != '')
+        <td class="text-right">$numberTool.format("integer", ${standard.sectionMaxPrice})</td>
+        #else
+        <td class="text-right">${standard.sectionMaxPrice}</td>
+        #end
+      </tr>
+      #end
+      #foreach ($standard in $classifyStandardPrice.ETC)
+      <tr>
+        #if($velocityCount == 1)
+        <td class="bg-muted" rowspan="4">기타</td>
+        #end
+        <td>${standard.chargeSection}</td>
+        <td>${standard.unitPrice}</td>
+        #if($standard.sectionMaxPrice != '')
+        <td class="text-right">$numberTool.format("integer", ${standard.sectionMaxPrice})</td>
+        #else
+        <td class="text-right">${standard.sectionMaxPrice}</td>
+        #end
+      </tr>
+      #end
+      </tbody>
+    </table>
+
+    <h6>기본요금상품 구간 해당 금액</h6>
+
+    <ul class="list-unstyled">
+      <li>1구간 : 500,000원 ~ 1,000,000원</li>
+      <li>2구간 : 1,000,000원 ~ 1,500,000원</li>
+      <li>3구간 : 1,500,000원 ~ 2,000,000원</li>
+      <li>4구간 : 2,000,000원 이상</li>
+    </ul>
+
+    <h6 class="d-flex mt-5"> 별도요금상품 건당 요금 <span class="h7 ml-auto font-weight-normal">* 별도요금상품은 지속적으로 추가될 예정입니다.</span></h6>
+
+    <table class="table table-bordered text-center">
+      <thead>
+      <tr class="bg-primary text-white">
+        <th>분류</th>
+        <th>상품명</th>
+        <th>건당 요금(원)</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      #foreach ($extra in $classifyExtraPrice.BK)
+      <tr>
+        #if ($velocityCount == 1)
+        <td class="bg-muted" rowspan="${extraProductCnt.BK}">은행</td>
+        #end
+        <td>${extra.productName}</td>
+        <td>${extra.unitPrice}</td>
+      </tr>
+      #end
+      #foreach ($extra in $classifyExtraPrice.CD)
+      <tr>
+        #if ($velocityCount == 1)
+        <td class="bg-muted" rowspan="${extraProductCnt.CD}">카드</td>
+        #end
+        <td>${extra.productName}</td>
+        <td>${extra.unitPrice}</td>
+      </tr>
+      #end
+      #foreach ($extra in $classifyExtraPrice.IS)
+      <tr>
+        #if ($velocityCount == 1)
+        <td class="bg-muted" rowspan="${extraProductCnt.IS}">보험</td>
+        #end
+        <td>${extra.productName}</td>
+        <td>${extra.unitPrice}</td>
+      </tr>
+      #end
+      #foreach ($extra in $classifyExtraPrice.ST)
+      <tr>
+        #if ($velocityCount == 1)
+        <td class="bg-muted" rowspan="${extraProductCnt.ST}">증권</td>
+        #end
+        <td>${extra.productName}</td>
+        <td>${extra.unitPrice}</td>
+      </tr>
+      #end
+      #foreach ($extra in $classifyExtraPrice.PB)
+      <tr>
+        #if ($velocityCount == 1)
+        <td class="bg-muted" rowspan="${extraProductCnt.PB}">공공</td>
+        #end
+        <td>${extra.productName}</td>
+        <td>${extra.unitPrice}</td>
+      </tr>
+      #end
+      #foreach ($extra in $classifyExtraPrice.ETC)
+      <tr>
+        #if ($velocityCount == 1)
+        <td class="bg-muted" rowspan="${extraProductCnt.ETC}">기타</td>
+        #end
+        <td>${extra.productName}</td>
+        <td>${extra.unitPrice}</td>
+      </tr>
+      #end
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

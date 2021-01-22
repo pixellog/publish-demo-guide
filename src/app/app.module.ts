@@ -3,21 +3,23 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NoticeMailComponent} from './notice-mail/notice-mail.component';
 import {MatIconModule} from '@angular/material/icon';
 import {ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MobileComponent, SafePipe} from './mobile/mobile.component';
-import { GuideComponent } from './guide/guide.component';
+import {GuideComponent} from './guide/guide.component';
+import {KeyComponent} from './account/key/key.component';
+import {GeneralComponent} from './account/general/general.component';
+import {TeamComponent} from './account/team/team.component';
+import {menus} from './menus';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NoticeMailComponent,
-    MobileComponent,
     GuideComponent,
-    SafePipe
+    KeyComponent,
+    GeneralComponent,
+    TeamComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,13 +27,11 @@ import { GuideComponent } from './guide/guide.component';
     MatIconModule,
     MatSnackBarModule,
     ReactiveFormsModule,
-    RouterModule.forRoot([
-      {path: '', component: AppComponent},
-      {path: 'noticeMail', component: NoticeMailComponent},
-    ])
+    RouterModule.forRoot(menus)
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [],
 })
 export class AppModule {
 }

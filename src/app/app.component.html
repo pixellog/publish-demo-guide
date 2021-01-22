@@ -1,6 +1,14 @@
-<div class="container">
-  <h1>1. guide</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-auto flex-grow-0">
+      <ul>
+        <li *ngFor="let menu of menus; index as i" [routerLink]="menu.path">{{menu.title}}</li>
+      </ul>
+    </div>
+    <div class="col-auto flex-grow-1">
+      <div class="container ml-auto">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
 </div>
-<app-mobile></app-mobile>
-<app-guide></app-guide>
-<app-notice-mail></app-notice-mail>

@@ -1,11 +1,12 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
-  selector: 'app-notice-mail',
-  templateUrl: './notice-mail.component.html',
+  selector: 'app-general',
+  templateUrl: './general.component.html',
 })
-export class NoticeMailComponent {
+export class GeneralComponent implements OnInit {
+
   // 공지 메일 수신자 변경
   mailRecipientEdit = false;
   mailRecipientItems = [];
@@ -22,4 +23,8 @@ export class NoticeMailComponent {
       duration: 2000,
     });
   }
+
+  ngOnInit(): void {
+  }
+
 }
