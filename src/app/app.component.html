@@ -1,9 +1,16 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-auto flex-grow-0">
-      <ul>
-        <li *ngFor="let menu of menus; index as i" [routerLink]="menu.path">{{menu.title}}</li>
-      </ul>
+      <div>
+        <div *ngFor="let menu of menus; index as i">
+          <a [routerLink]="menu.path" routerLinkActive="active text-danger">{{menu.title}}</a>
+          <ul *ngIf="!!menu.children">
+            <li *ngFor="let menu of menu.children; index as i">
+              <a [routerLink]="['/'+menu.path]" routerLinkActive="active text-danger">{{menu.title}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div class="col-auto flex-grow-1">
       <div class="container ml-auto">
